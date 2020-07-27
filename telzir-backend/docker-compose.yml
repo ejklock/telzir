@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      args:
+        user: telzir
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: telzir-api
+    container_name: telzir-api
+    command: 'npm run dev'
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./app:/usr/telzir
+    networks:
+      - telzirNetwork
+  db:
+    image: mysql:5.7
+    container_name: telzir-db
+    tty: true
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "33306:3306"
+    environment:
+      MYSQL_DATABASE: telzir
+      MYSQL_ROOT_PASSWORD: telzir
+      MYSQL_PASSWORD: telzir
+      MYSQL_USER: telzir
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - telzirNetwork
+networks:
+  telzirNetwork:
+    driver: bridge

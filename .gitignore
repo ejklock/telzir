@@ -1,0 +1,5 @@
+telzir-backend/app/node_modules
+telzir-frontend/node_modules
+telzir-backend/app/yarn.lock
+telzir-backend/app/yarn-error.log
+telzir-frontend/yarn.lock

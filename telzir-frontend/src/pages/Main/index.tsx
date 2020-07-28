@@ -176,7 +176,6 @@ const Main: React.FC = () => {
               ) : (
                 ''
               )}
-              {}
             </Modal.Body>
 
             <Modal.Footer>

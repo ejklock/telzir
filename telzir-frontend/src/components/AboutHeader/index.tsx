@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
 import NavBar from '../NavBar';
 import { ReactComponent as People } from '../../assets/img/people.svg';
 import { Container, HeaderTitle, AboutContainer } from './styles';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
 import { FaBars, FaPhone } from 'react-icons/fa';
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { Nav } from './styles';
 
 interface NavProps {
@@ -10,7 +9,7 @@ interface NavProps {
 }
 
 const NavBar: React.FC<NavProps> = ({ open = false, background }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   function handleToggleClick() {
     setMenuOpen(!menuOpen);

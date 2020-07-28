@@ -1,11 +1,15 @@
 import { Router, Request, Response } from 'express'
 import CreatePlanService from '../services/CreatePlanService'
+import PlanRepository from '../repositories/PlanRepository'
+import { getCustomRepository } from 'typeorm'
 
 const plansRouter = Router()
 const createPlanService = new CreatePlanService()
 
 plansRouter.get('/', async (request, response) => {
-  return response.json('plans')
+  const planRepository = getCustomRepository(PlanRepository)
+  const result = await planRepository.createQueryBuilder('plans').orderBy('freeUntil', 'ASC').getMany()
+  return response.json(result)
 })
 
 plansRouter.post('/', async (request: Request, response: Response) => {

@@ -1,17 +1,19 @@
-{
-  "type": "mysql",
-  "host": "db",
-  "port": 3306,
-  "username": "telzir",
-  "password": "telzir",
-  "database": "telzir",
-  "entities": [
-    "./src/models/*.ts"
-  ],
-  "migrations": [
-    "./src/database/migrations/*.ts"
-  ],
-  "cli": {
-    "migrationsDir": "./src/database/migrations"
+[
+  {
+    "type": "mysql",
+    "host": "db",
+    "port": 3306,
+    "username": "telzir",
+    "password": "telzir",
+    "database": "telzir",
+    "entities": [
+      "./src/models/*.ts"
+    ],
+    "migrations": [
+      "./src/database/migrations/*.ts"
+    ],
+    "cli": {
+      "migrationsDir": "./src/database/migrations"
+    }
   }
-}
+]

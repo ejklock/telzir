@@ -1,14 +1,13 @@
 import { Router, Request, Response } from 'express'
-import CreatePlanService from '../services/CreatePlanService'
-import PlanRepository from '../repositories/PlanRepository'
-import { getCustomRepository } from 'typeorm'
+import CreatePlanService from '@services/CreatePlanService'
+import GetAllPlansOrderedService from '@services/GetAllPlansOrderedService'
 
-const plansRouter = Router()
 const createPlanService = new CreatePlanService()
+const getAllPlansOrderedService = new GetAllPlansOrderedService()
+const plansRouter = Router()
 
 plansRouter.get('/', async (request, response) => {
-  const planRepository = getCustomRepository(PlanRepository)
-  const result = await planRepository.createQueryBuilder('plans').orderBy('freeUntil', 'ASC').getMany()
+  const result = await getAllPlansOrderedService.execute()
   return response.json(result)
 })
 
@@ -17,22 +16,6 @@ plansRouter.post('/', async (request: Request, response: Response) => {
 
   const result = await createPlanService.execute({ name, freeUntil })
   return response.json(result)
-})
-
-plansRouter.delete('/:id', async (request, response) => {
-  try {
-
-  } catch (err) {
-    response.status(400).json({ error: err.message })
-  }
-})
-
-plansRouter.post('/import', async (request, response) => {
-  try {
-
-  } catch (err) {
-    response.status(400).json({ error: err.message })
-  }
 })
 
 export default plansRouter

@@ -68,7 +68,11 @@ const Main: React.FC = () => {
       const { data } = result;
       setCosts(data);
     } catch (err) {
-      const { message } = err.response.data;
+      const {
+        response: {
+          data: { message },
+        },
+      } = err;
       toast.error(message);
     }
 

@@ -1,19 +1,20 @@
 import { Router, Request, Response } from 'express'
-import PriceRepository from '../repositories/PriceRepository'
-import { getCustomRepository } from 'typeorm'
+import GetAllPricesService from '@services/GetAllPricesService'
+import CreatePriceService from '@services/CreatePriceService'
+
+const getAllPricesService = new GetAllPricesService()
+const createPriceService = new CreatePriceService()
 
 const priceRouter = Router()
 
 priceRouter.get('/', async (request, response) => {
-  const priceRepository = getCustomRepository(PriceRepository)
-  const result = await priceRepository.find()
+  const result = await getAllPricesService.execute()
   return response.json(result)
 })
 
 priceRouter.post('/', async (request: Request, response: Response) => {
-  const priceRepository = getCustomRepository(PriceRepository)
   const { from, to, value } = request.body
-  const result = await priceRepository.save({ from, to, value })
+  const result = await createPriceService.execute({ from, to, value })
   return response.json(result)
 })
 

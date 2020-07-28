@@ -1,16 +1,11 @@
 import Plan from '../models/Plan'
 import PlanRepository from '../repositories/PlanRepository'
-import { getCustomRepository } from 'typeorm'
+import CreatePlanDTO from '../repositories/DTOS/CreatePlanDTO'
 
-interface CreatePlanRequest {
-  name: string;
-  freeUntil: number
-
-}
 export default class CreatePlanService {
-  public async execute ({ name, freeUntil }: CreatePlanRequest): Promise<Plan> {
-    const planRepository = getCustomRepository(PlanRepository)
-    const result = await planRepository.save({ name, freeUntil })
+  public async execute ({ name, freeUntil }: CreatePlanDTO): Promise<Plan> {
+    const planRepository = new PlanRepository()
+    const result = await planRepository.create({ name, freeUntil })
     return result
   }
 }

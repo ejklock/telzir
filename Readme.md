@@ -1,6 +1,6 @@
 # Telzir
 
-<p>Criado por Evaldo Klock - neto.nemesis@gmail.com</p>
+<p>Criado com carinho por Evaldo Klock - neto.nemesis@gmail.com</p>
 <ul>
 <li>NodeJS com Express JS no Back-End </li>
 <li>React JS no Front-End</li>
@@ -26,3 +26,4 @@ Esse comando é necessário para garantir que o banco inicie corretamente<pre>ma
 
 <pre>npm install ou yarn </pre>
 <pre>npm run start ou yarn start</pre>
+<pre>Acessar o front-end no navegador em <a href="http://localhost:3000">http://localhost:3000</a></pre>

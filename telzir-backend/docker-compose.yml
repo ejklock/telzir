@@ -15,6 +15,7 @@ services:
       - "3333:3333"
     volumes:
       - ./app:/usr/telzir
+      - ./app/node_modules:/telzir/node_modules
     networks:
       - telzirNetwork
   db:

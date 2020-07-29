@@ -4,11 +4,11 @@ PWD ?= $$(pwd)
 USERID ?= $$(id -u)
 
 
-shell:
-	$(DOCKER_RUN) bash
-
 build-backend: ## Build the docker image of Telzir-Backend
 	docker-compose  -f telzir-backend/docker-compose.yml build
+	
+build-backend-nocache: ## Build the docker image of Telzir-Backend
+	docker-compose  -f telzir-backend/docker-compose.yml build --no-cache
 
 start-backend: ## Start the docker container of Telzir-Backend
 	docker-compose  -f telzir-backend/docker-compose.yml up -d

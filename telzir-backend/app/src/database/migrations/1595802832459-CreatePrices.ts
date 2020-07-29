@@ -13,11 +13,6 @@ export class CreatePrices1595802832459 implements MigrationInterface {
             generationStrategy: 'uuid'
           },
           {
-            name: 'name',
-            type: 'varchar',
-            isNullable: false
-          },
-          {
             name: 'from',
             type: 'varchar',
             isNullable: false

@@ -1,15 +1,25 @@
-FROM node:alpine
+FROM node:alpine as builder
 
-WORKDIR /usr/telzir
-
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
 COPY app/package*.json ./
 
+RUN npm install
+FROM node:alpine
 
-COPY app ./
+WORKDIR /usr/src/telzir/app
 
-USER $user
+COPY --from=builder node_modules app/node_modules
 
+COPY . .
+
+WORKDIR /usr/src/telzir/app/app
+
+RUN ls
 
 EXPOSE 3333
+
+
 
 

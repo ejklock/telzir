@@ -1,6 +1,5 @@
 import PriceRepository from '../repositories/PriceRepository'
 import PlanRepository from '../repositories/PlanRepository'
-import Plan from '@models/Plan'
 import AppError from '../errors/AppError'
 import EstimateCostRequestDTO from '../repositories/DTOS/EstimateCostRequestDTO'
 import EstimatedCostRespondeDTO from '../repositories/DTOS/EstimatedCostResponseDTO'

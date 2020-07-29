@@ -4,12 +4,6 @@ import request from 'supertest'
 import server from '../../serverTests'
 import connection from '../../database'
 
-type PlanResponse = {
-  name: string,
-  freeUntil: number
-  id: string
-}
-
 beforeAll(async () => {
   await connection.create()
 })
@@ -17,6 +11,7 @@ beforeAll(async () => {
 afterAll(async () => {
   console.log('END OF TEST')
   await connection.close()
+  server.close()
 })
 
 describe('GET /plan', () => {
@@ -29,11 +24,9 @@ describe('GET /plan', () => {
 
 describe('GET /price', () => {
   it('return JSON of Price', async () => {
-    await expect(request(server)
-      .get('/price')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(200)).resolves
+    const result = await request(server).get('/price')
+    expect(result.type).toEqual('application/json')
+    expect(result.status).toEqual(200)
   })
 })
 

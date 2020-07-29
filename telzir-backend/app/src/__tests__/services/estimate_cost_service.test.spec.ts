@@ -1,10 +1,12 @@
 import connection from '../../database'
 import EstimateCostsService from '@services/EstimeCostsService'
 
+// Cria conexão com o banco de dados antes de iniciar os testes
 beforeAll(async () => {
   await connection.create()
 })
 
+// Finaliza a conexão com o banco de dados ao terminar os testes
 afterAll(async () => {
   console.log('END OF TEST')
   await connection.close()

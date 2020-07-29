@@ -30,8 +30,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   })
 })
 
-const server = app.listen(3333, () => {
-  console.log('Test Server started on http://localhost:3333')
-})
+const server = app.listen(3334)
 
 export default server

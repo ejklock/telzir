@@ -1,4 +1,4 @@
-import { Router, response } from 'express'
+import { Router, Response } from 'express'
 
 import plansRouter from './plans.route'
 import priceRouter from './price.route'
@@ -6,7 +6,7 @@ import estimateRouter from './estimate.route'
 
 const routes = Router()
 
-routes.get('/', (req, res) => {
+routes.get('/', (req, res: Response) => {
   return res.json('Telzir API')
 })
 

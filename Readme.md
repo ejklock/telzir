@@ -14,6 +14,10 @@
 <pre>make build-backend</pre>
 <pre>make start-backend</pre>
 
+Esse comando é necessário para garantir que o banco inicie corretamente<pre>make stop-backend</pre>
+
+<pre>make start-backend</pre>
+
 #### Rodar Testes no Backend
 
 <pre>make tests-backend</pre>

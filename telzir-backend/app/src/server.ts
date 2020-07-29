@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express'
+import { errors } from 'celebrate'
 import 'express-async-errors'
 import AppError from './errors/AppError'
 import routes from './routes'
@@ -15,6 +16,7 @@ connection.create().then(conn => {
 
   app.use(express.json())
   app.use(routes)
+  app.use(errors())
 
   // definindo middleware de captura de erros da aplicação
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
@@ -24,6 +26,8 @@ connection.create().then(conn => {
         message: err.message
       })
     }
+
+    console.log(err)
 
     return res.status(500).json({
       status: 'error',

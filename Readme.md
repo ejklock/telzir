@@ -5,16 +5,17 @@
 <li>NodeJS com Express JS no Back-End </li>
 <li>React JS no Front-End</li>
 <li>Docker com docker-compose para o backend e banco de dados</li>
+<li>Docker com docker-compose para o front-end </li>
 </ul>
+<p>Os ambientes aqui estão em forma de desenvolvimento. A parte de autenticação da API pra criação de dados não foi criada considerado o contexto. Mas temos a ciência que isso é necessário em um ambiente de produção</p>
 
 # Instruções para Rodar o Projeto
 
+<p>Você precisará estar em um ambiente Linux com docker e docker-compose instalados</p>
+
 ## Backend
 
-<pre>make build-backend</pre>
-<pre>make start-backend</pre>
-
-Esse comando é necessário para garantir que o banco inicie corretamente<pre>make stop-backend</pre>
+#### Iniciar API Backend
 
 <pre>make start-backend</pre>
 
@@ -24,6 +25,5 @@ Esse comando é necessário para garantir que o banco inicie corretamente<pre>ma
 
 ## Front-End
 
-<pre>npm install ou yarn </pre>
-<pre>npm run start ou yarn start</pre>
+<pre>make start-front</pre>
 <pre>Acessar o front-end no navegador em <a href="http://localhost:3000">http://localhost:3000</a></pre>

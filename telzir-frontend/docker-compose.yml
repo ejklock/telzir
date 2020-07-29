@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      args:
+        user: telzir
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: telzir-app
+    container_name: telzir-app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    networks:
+      - telzirNetwork
+networks:
+  telzirNetwork:
+    driver: bridge

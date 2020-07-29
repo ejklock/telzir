@@ -10,7 +10,7 @@ build-backend: ## Build the docker image of Telzir-Backend
 build-backend-nocache: ## Build the docker image of Telzir-Backend
 	docker-compose  -f telzir-backend/docker-compose.yml build --no-cache
 
-start-backend: ## Start the docker container of Telzir-Backend
+start-backend: ## Build and Start the docker container of Telzir-Backend
 	docker-compose  -f telzir-backend/docker-compose.yml up -d
 
 stop-backend: ## Stop the docker container of Telzir-Backend

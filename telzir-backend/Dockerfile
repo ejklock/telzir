@@ -16,8 +16,6 @@ COPY . .
 
 WORKDIR /usr/src/telzir/app/app
 
-RUN ls
-
 EXPOSE 3333
 
 

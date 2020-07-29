@@ -34,7 +34,7 @@ describe('POST /estimate', () => {
   it('CHECK IF COST IS CALCULATED ', () => {
     return request(server)
       .post('/estimate')
-      .send({ from: '011', to: '016', minutes: 35, planId: '6efc04d1-b86c-4a59-be62-2f1a768c5b4c' })
+      .send({ from: '011', to: '016', minutes: 35, planId: 'afe0a906-c904-4017-a009-7e0efd224559' })
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
       .expect(200, {
@@ -44,8 +44,8 @@ describe('POST /estimate', () => {
         withoutPlan: 66.5,
         saving: 84.28571428571429,
         plan: {
-          id: '6efc04d1-b86c-4a59-be62-2f1a768c5b4c',
-          name: 'Fale 30',
+          id: 'afe0a906-c904-4017-a009-7e0efd224559',
+          name: 'Fale Mais 30',
           freeUntil: 30
         }
       })

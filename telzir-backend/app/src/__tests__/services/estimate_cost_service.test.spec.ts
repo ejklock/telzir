@@ -15,7 +15,12 @@ afterAll(async () => {
 describe('Test Cost Estimation Service for Plan Fale Mais 60', () => {
   it('Tests whether the service calculates correctly for 80 Minutes', async () => {
     const estimateCostsService = new EstimateCostsService()
-    const result = await estimateCostsService.execute({ planId: '0b641cfc-3f61-4fb8-ae01-8e87601f7441', from: '011', to: '017', minutes: 80 })
+    const result = await estimateCostsService.execute({
+      planId: '78bdbd83-77bd-4de6-98dd-c3fe5002b93b',
+      from: '011',
+      to: '017',
+      minutes: 80
+    })
     expect(result.withPlan.toPrecision(3)).toEqual('37.4')
   })
 })

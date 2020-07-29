@@ -11,11 +11,11 @@ services:
     image: telzir-api
     container_name: telzir-api
     command: 'npm run dev'
+    restart: unless-stopped
     ports:
       - "3333:3333"
     volumes:
       - ./app:/usr/telzir
-      - ./app/node_modules:/telzir/node_modules
     networks:
       - telzirNetwork
   db:
@@ -33,6 +33,10 @@ services:
       MYSQL_USER: telzir
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    healthcheck:
+      test: "/etc/init.d/mysql status"
+      interval: 1s
+      retries: 120
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
